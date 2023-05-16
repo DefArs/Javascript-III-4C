@@ -1,0 +1,54 @@
+.btn {
+  border: #000 solid 1px;
+  background-color: #fff;
+  border-radius: 5px;
+  font-size: 18px;
+  margin: 15px 0;
+  padding: 10px;
+}
+
+
+.container {
+  margin: 0 auto;
+  text-align: center;
+  width: 30%;
+}
+
+.dad {
+  width: 40%;
+}
+
+.joke-container {
+  background-color: #d9d9d9;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.joke-container__input {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 15px 10px;
+}
+
+.joke-container__input ol {
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 20px 0;
+  padding: 10px 5px;
+}
+
+.joke-container__input-search {
+  border: #fff solid 1px;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px 5px;
+}
+
+.list-clean,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
