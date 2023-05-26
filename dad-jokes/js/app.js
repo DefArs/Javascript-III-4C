@@ -1,3 +1,5 @@
+import api from "./api";
+
 //DOM
 const randomJokeBtn = document.getElementById("random-joke__btn");
 const randomJokeText = document.getElementById("random-joke__text");
@@ -16,18 +18,7 @@ searchJokeBtn.addEventListener("click", searchJokes);
 //random joke function
 function getRandomJoke() {
   //call API
-  fetch("https://icanhazdadjoke.com/", {
-    headers: {
-      Accept: "application/json",
-    },
-  })
-    .then((response) => response.json()) //gets data
-    .then((data) => {
-      randomJokeText.innerText = data.joke;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  api();
 }
 
 //search jokes function
