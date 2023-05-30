@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Dad Jokes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main class="main">
+    <div class="chosen-product">
+      <div class="product-wrap">
+        <div class="visualizer">
+          <img id="main-img" class="visualizer__img" src="img/product-shirt-white.jpg" />
+          <p id="main-joke" class="visualizer__joke"></p>
+        </div>
+        <div>
+          <div>
+            <input data-id="black" class="color" type="radio" name="color">
+            <label for="black">Black</label>
+          </div>
+          <div>
+            <input data-id="white" class="color" type="radio" name="color">
+            <label for="white">White</label>
+          </div>
+        </div>
+      </div>
+      <div class="product-details">
+        <div>
+          <h1 id="title">title</h1>
+          <p id="price">20</p>
+          <p id="selected-joke">jokejokejoke</p>
+        </div>
+        <div class="choose-product-joke">
+          <div class="joke-container" id="random-joke">
+            <div class="joke-container__input" id="random-joke__text"></div>
+            <button class="random__btn btn" id="random-joke__btn">
+              Get another joke!
+            </button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button id="cart__btn" class="cart"><img src="img/cart.svg" alt=""></button>
+        <div id="cart__slide" class="cart__slide-shop">
+          <h2>Content</h2>
+          <ul id="cart-list"></ul>
+          <button id="cart-list-trash">Remove all</button>
+        </div>
+
+      </div>
+    </div>
+    <div class="other-products">
+      <h2>Choose another product</h2>
+      <div id="other-products-wrap" class="other-products__wrapper">
+      </div>
+    </div>
+  </main>
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>

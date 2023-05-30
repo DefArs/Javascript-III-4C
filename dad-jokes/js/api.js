@@ -1,22 +1,27 @@
-function api(endpoint = "") {
-  const baseUrl = "https://icanhazdadjoke.com/";
-
-  let dataToReturn;
-
-  fetch(`${baseUrl}${endpoint}`, {
+export async function fetchRandomJoke() {
+  const config = {
     headers: {
       Accept: "application/json",
     },
-  })
-    .then((response) => response.json()) //gets data
-    .then((data) => {
-      dataToReturn = data;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  };
 
-  return dataToReturn;
+  const response = await fetch("https://icanhazdadjoke.com", config);
+  const data = await response.json();
+  return data.joke;
 }
 
-export default api;
+export async function fetchJokesBySearchTerm(searchWord) {
+  const config = {
+    headers: {
+      Accept: "application/json",
+    },
+  };
+
+  const response = await fetch(
+    `https://icanhazdadjoke.com/search?term=${searchWord}`,
+    config
+  );
+
+  const data = await response.json();
+  return data.results || [];
+}
