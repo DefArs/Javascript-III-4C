@@ -1,32 +1,38 @@
-/*function searchJokes() {
-  const searchText = searchJokeInput.value.trim();
-  //gets data
-  if (searchText === "") {
-    return;
-  }
+import { fetchJokesBySearchTerm } from "./api.js";
 
-  //call API
-  fetch(`https://icanhazdadjoke.com/search?term=${searchText}`, {
-    headers: {
-      Accept: "application/json",
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      searchJokeList.innerHTML = "";
-      //reads the length of the data, if it is zero this "if" displays the default text
-      if (data.results.length === 0) {
-        searchJokeList.innerHTML = "<li>No hubo resultados</li>";
-      } else {
-        //here a list is created with the obtained data
-        data.results.forEach((result) => {
-          const jokeItem = document.createElement("ol");
-          jokeItem.innerText = result.joke;
-          searchJokeList.appendChild(jokeItem);
-        });
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}*/
+export async function searchJoke() {
+  const searchWord = document.getElementById("search-joke__input").value;
+  const searchResultsList = document.getElementById(
+    "search-joke-results__list"
+  );
+  searchResultsList.innerHTML = "";
+
+  try {
+    const jokes = await fetchJokesBySearchTerm(searchWord);
+
+    if (jokes.length) {
+      jokes.forEach((joke) => {
+        const jokeDiv = document.createElement("div");
+        jokeDiv.className = "joke-container__input";
+        jokeDiv.innerText = joke.joke;
+
+        const li = document.createElement("li");
+        li.appendChild(jokeDiv);
+
+        searchResultsList.appendChild(li);
+      });
+    } else {
+      const noResultsDiv = document.createElement("div");
+      noResultsDiv.className = "joke-container__input";
+      noResultsDiv.innerText = "No hay resultados";
+
+      const li = document.createElement("li");
+      li.appendChild(noResultsDiv);
+      searchResultsList.appendChild(li);
+    }
+  } catch (error) {
+    console.log("Error al realizar la búsqueda:", error);
+  }
+}
+
+export default searchJoke;

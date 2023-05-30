@@ -1,15 +1,12 @@
-/*function getRandomJoke() {
-  //call API
-  fetch("https://icanhazdadjoke.com/", {
-    headers: {
-      Accept: "application/json",
-    },
-  })
-    .then((response) => response.json()) //gets data
-    .then((data) => {
-      randomJokeText.innerText = data.joke;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}*/
+import { fetchRandomJoke } from "./api.js";
+
+export async function getRandomJoke() {
+  try {
+    const joke = await fetchRandomJoke();
+    document.getElementById("random-joke__text").innerHTML = joke;
+  } catch (error) {
+    console.log("Error al obtener el chiste:", error);
+  }
+}
+
+export default getRandomJoke;
