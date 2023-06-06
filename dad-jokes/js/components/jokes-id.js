@@ -1,15 +1,16 @@
-async function fetchJokes() {
-  const response = await fetch("https://icanhazdadjoke.com/search", {
+export async function shopJoke(jokeId) {
+  const config = {
     headers: {
       Accept: "application/json",
     },
-  });
+  };
+
+  const response = await fetch(
+    `https://icanhazdadjoke.com/j/${jokeId}`,
+    config
+  );
   const data = await response.json();
-  const jokes = data.results;
-
-  const jokeIds = jokes.map((joke) => joke.id);
-
-  console.log("IDs de los chistes:", jokeIds);
+  return data.joke;
 }
 
-export default fetchJokes;
+export default shopJoke;

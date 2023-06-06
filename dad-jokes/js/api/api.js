@@ -25,3 +25,5 @@ export async function fetchJokesBySearchTerm(searchWord) {
   const data = await response.json();
   return data.results || [];
 }
+
+//pendiente: no mostrar sin input
