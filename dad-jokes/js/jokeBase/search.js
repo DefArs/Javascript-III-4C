@@ -1,4 +1,4 @@
-import { fetchJokesBySearchTerm } from "./api.js";
+import { fetchJokesBySearchTerm } from "../api/api.js";
 
 export async function searchJoke() {
   const searchWord = document.getElementById("search-joke__input").value;
